@@ -25,7 +25,7 @@ test("should take courses cheaper 160", () => {
 
 })
 
-test("get only completed tasks", () => {
+test("get only uncompleted tasks", () => {
     const tasks = [
         {id: 1, title: "Bread", isDone: false},
         {id: 2, title: "Milk", isDone: true},
@@ -33,12 +33,11 @@ test("get only completed tasks", () => {
         {id: 4, title: "Sugar", isDone: true}
     ]
 
-const completedTasks = tasks.filter(task => task.isDone);
+const completedTasks = tasks.filter(task => !task.isDone);
 
         expect(completedTasks.length).toBe(2);
-        expect(completedTasks[0].title).toBe("Milk");
-        expect(completedTasks[1].id).toBe(4
-        );
+        expect(completedTasks[0].title).toBe("Bread");
+        expect(completedTasks[1].id).toBe(3);
 
     }
 
